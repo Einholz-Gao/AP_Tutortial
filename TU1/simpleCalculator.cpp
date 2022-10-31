@@ -1,6 +1,12 @@
 #include<iostream>
 using namespace std;
 //Alice creats it.
+double sum(double a,double b){
+ return a+b;
+}
+double sum(double a,double b){
+ return a-b;
+}
 
 double sum(double a, double b){
     return a+b;
