@@ -2,12 +2,10 @@
 using namespace std;
 //Alice creats it.
 
-double sum(double a,double b){
- return a+b;
+double mean(double a, double b){
+    return (a+b)/2;
 }
-double subtract(double a,double b){
- return a-b;
-}
+
 
 int main(){
     //write your code here.
