@@ -40,12 +40,18 @@ void check(double x) {
 		cin >> x;
 	}
 }
-void check_Opr(string Opr){
-        if (Opr!="+"||Opr!="-"||Opr!="*"||Opr!="/"||Opr!="mean"||Opr!="square"||Opr!="sin"||Opr!="cos"||Opr!="tan"){
-        cout << "Operation is Wrong Input! Please input again." << endl;
-		cin.clear();
-		cin.ignore(1000, '\n');
-        cin>> Opr;
+
+int base(int a, int b){
+    int x;
+    cout << "Result = " << endl;
+    	for (int i = 0; i < 100; i++) {
+		if (a != 0) {
+			x = a % b;
+			a = a / b;
+			cout<<x<<endl;
+		} else {
+			break;
+		}
 }
 }
 
@@ -56,13 +62,13 @@ int main(){
     double N1,N2;
     double res;
     cout<<"************Simple Calculator************ "<<endl;
-	cout << "Please input the Operator(+ - * / mean square sin cos tan): ";
+	cout << "Please input the Operator(+ - * / mean square sin cos tan base): ";
+Operation:
 	cin >> Opr;
-	check_Opr(Opr);
 	cout << "Please input the first number:";
 	cin >> N1;
 	check(N1);
-    if (Opr=="+"||Opr=="-"||Opr=="*"||Opr=="/"||Opr=="mean"){
+    if (Opr=="+"||Opr=="-"||Opr=="*"||Opr=="/"||Opr=="mean" || Opr == "base"){
 	cout << "Please input the second number:";
 	cin >> N2;
 	check(N2);
@@ -72,12 +78,20 @@ int main(){
     else if(Opr=="*")  res=multiply(N1,N2);
     else if(Opr=="/")   res=divide(N1,N2);
     else if(Opr=="mean")res=mean(N1,N2);
-    else if(Opr=="square") res=pow(N1,2);
+    else if(Opr=="square") res=pow(N1,2.0);
     else if(Opr=="sin") res=sin(N1*M_PI);
     else if(Opr=="cos") res=cos(N1*M_PI);
     else if(Opr=="tan") res=tan(N1*M_PI);
-
-    cout<<"Result: "<<res<<endl;
+else if(Opr=="base") res=base(N1, N2);
+    else {
+        cout << "The operation is wrong. Please give a new operator." << endl;
+        goto Operation;
+    }
+    if (Opr != "base")
+        cout<<"Result = "<<res<<endl;
+    else{
+    // do nothing.
+    }
     return 0; 
 }
 
