@@ -27,6 +27,8 @@ int main(){
     char c;
     double a,b;
     double res;
+    cout<<"*******Simple Calculator************ "<<endl;
+    cout<<"Please give a number,an operation and a number: "<<endl<<"(Form: N O N)"<<endl;
     cin>>a>>c>>b;
     if(c=='+')  res=sum(a,b);
     else if(c=='-') res=subtract(a,b);        
@@ -34,7 +36,7 @@ int main(){
     else if(c=='/')   res=divide(a,b);
     else res=mean(a,b);
 
-    cout<<res<<endl;
+    cout<<"Result: "<<res<<endl;
     return 0; 
 }
 
