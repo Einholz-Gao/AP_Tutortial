@@ -6,6 +6,7 @@
 #include<random>
 #include<string>
 #include<tuple>
+#include <algorithm>
 
 
 const auto num_countries = 195;
@@ -91,12 +92,13 @@ void populate_vector( std::vector<unsigned int>& global_cases) {
     auto min = 0;
     auto max = 10000;
 
-    // mt19337: a pseudo random generator using the mersenne 
+    // mt19337: a pseudo random generator using the mersenne
     // twister engine ( from <random> )
     // The value of gen will be updated every time we access it.
     std::mt19937 gen(seed);
-    // uniform_int_distribution: use the mersenne twister 
+    // uniform_int_distribution: use the mersenne twister
     // engine to generate a uniform random distribution over (min, max)
+
     std::uniform_int_distribution<unsigned int> unif_distrib(min, max);
 
     /* 3. populate vector global_cases with random data
@@ -104,6 +106,12 @@ void populate_vector( std::vector<unsigned int>& global_cases) {
     * unif_distrib(gen)
     */ 
    // YOUR CODE HERE 
+   // for(const auto& num: global_cases){
+   //    num = unif_distrib(gen);
+   for(auto i = 0; i < num_countries; i++){
+   global_cases.push_back(unif_distrib(gen));
+   // std::cout<<global_cases[i]<<std::endl;  // for debug
+   }
 }
 
 int main() {
@@ -112,15 +120,22 @@ int main() {
     // it with dummy data using populate_vector (task 3).
     // Once you have done so, uncomment the last line in main:
     // i.e. call "write_to_csv"
-
     /* YOUR CODE HERE */
+
+    std::vector<unsigned int> global_cases;
+
+    populate_vector(global_cases);
 
     // 4. Find out which country had the highest number of cases today
     // and print both the no. of cases and the name of the country
     // print today's case numbers. 
     
     /* YOUR CODE HERE */
-
-    // write_to_csv( global_cases );
+    int max = *max_element(global_cases.begin(), global_cases.end());
+    auto it = find(global_cases.begin(), global_cases.end(), max);
+    auto index = distance(global_cases.begin(),it);
+    std::cout<<"Country: "<<countries[index]<<std::endl;
+    std::cout<<"Highest number of cases today: "<<max<<std::endl;
+    write_to_csv( global_cases );
 
 }
