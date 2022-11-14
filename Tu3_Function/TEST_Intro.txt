@@ -1,0 +1,13 @@
+[check your output]
+
+1.using some test resp. like Googletest
+
+check the output and expect output
+[Test method]
+
+2.CI/CD platform,like gitlab/github
+
+
+Test steps:
+unit   ->   interation    ->    system test
+(function) (between functions)  (whole code)
