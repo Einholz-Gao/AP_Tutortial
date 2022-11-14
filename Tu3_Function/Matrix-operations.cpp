@@ -2,49 +2,56 @@
 // *     Advanced programming   *
 // ******************************
 #include<iostream>
+#include <iterator>
 #include<vector>
 #include <cassert>
 
 using namespace std;
 
 template <typename T>
-void print_vector(const T& m){
-    for(auto&elem:m){                                       // dont need a "const" here
+void print_vector(const T& vec){
+    std::cout<<"[ ";
+    for(auto&elem:vec){                                       // dont need a "const" here
         std::cout << elem << " ";
     }
+    std::cout<<"]" << std::endl;
 }
 
 template <typename T>
-void print_matrix(const vector<vector<T>>& m){
-    for( auto&vector:m){
-        for( auto&elem:vector)
-        std::cout << elem << std::endl;
+void print_matrix(const vector<vector<T>>& mat){
+    for( auto&row:mat){
+       print_vector(row);
+       // std::cout << std::endl;
     }
 }
 
 // void print_vector(const std::vector<double>& m){
-//     for(auto&elem:m){
-//         std::cout << elem << std::endl;
-//     }
+    // std::cout<<"[ ";
+    // for(auto&elem:m){                                       // dont need a "const" here
+    //     std::cout << elem << " ";
+    // }
+    // std::cout<<"]";
 // }
 // void print_vector(const std::vector<int>& m){
-//     for(auto&elem:m){
+    // std::cout<<"[ ";
+    // for(auto&elem:m){                                       // dont need a "const" here
+    //     std::cout << elem << " ";
+    // }
+    // std::cout<<"]";
+// }
+// void print_matrix(const std::vector<std::vector<double>>&m){
+//     for(const auto&vector:m){
+//         for(const auto&elem:vector)
 //         std::cout << elem << std::endl;
 //     }
 // }
-void print_matrix(const std::vector<std::vector<double>>&m){
-    for(const auto&vector:m){
-        for(const auto&elem:vector)
-        std::cout << elem << std::endl;
-    }
-}
-
-void print_matrix(const std::vector<std::vector<int>>&m){
-    for(const auto&vector:m){
-        for(const auto&elem:vector)
-        std::cout << elem << std::endl;
-    }
-}
+//
+// void print_matrix(const std::vector<std::vector<int>>&m){
+//     for(const auto&vector:m){
+//         for(const auto&elem:vector)
+//         std::cout << elem << std::endl;
+//     }
+// }
 template <typename T>
 vector<T> operator+(const vector<T>&vec_a, const vector<T>&vec_b){
     assert( vec_a.size() == vec_b.size() ); // Complain if sizes are not
@@ -76,7 +83,12 @@ bool test_matrix_vector_product(){
 }
 int main(){
     vector<double> V1 = {1, 2, 3, 4};
-    vector<double> V2 = {1, 2, 3, 4};
-    // print_vector((V1*V2));
+    vector<double> V2 = {4, 3, 2, 1};
+    vector<vector<int>> matrix = {
+    {1, 2, 3},
+    {3, 2, 1},
+    {4, 5, 6}};
+    print_vector((V1));
+    print_matrix(matrix);
     return 0;
 }
