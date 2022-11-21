@@ -1,0 +1,5 @@
+A pointer needs tobe defined at compile time. F
+std::vector can be passed to a lagcy function, written for C-style. T
+
+
+rvalue will never work with lvalue.  F
