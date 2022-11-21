@@ -169,8 +169,11 @@ bool test_matrix_vector_product() {
     // TODO: Delete all memory allocated with new
     delete[] matrix_raw;
     delete[] vec_raw;
+    delete[] res_raw;
+    // here we fixed the memory leak. after use"new", there must be a "delete" to release the memory.
 
     return tests_passed;
+
 }
 
 
