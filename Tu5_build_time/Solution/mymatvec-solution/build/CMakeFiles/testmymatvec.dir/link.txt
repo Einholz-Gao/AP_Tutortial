@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/testmymatvec.dir/testmatvec.cpp.o -o testmymatvec 

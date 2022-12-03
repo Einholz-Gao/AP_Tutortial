@@ -1,0 +1,19 @@
+Start testing: Nov 28 11:46 CET
+----------------------------------------------------------
+Unable to find executable: /home/einholz/[Studitum]/WS22|23/AP/Tutorial/Tu5_build_time/Solution/mymatvec-solution/build/testmymatvec
+1/1 Testing: mytest
+1/1 Test: mytest
+Command: ""
+Directory: /home/einholz/[Studitum]/WS22|23/AP/Tutorial/Tu5_build_time/Solution/mymatvec-solution/build
+"mytest" start time: 
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"mytest" end time: Nov 28 11:46 CET
+"mytest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 28 11:46 CET

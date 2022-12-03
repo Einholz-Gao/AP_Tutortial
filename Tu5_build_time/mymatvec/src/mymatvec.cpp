@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<cassert>
+#include <Eigen/Dense>
 
 template<typename T>
 void print_vec(const std::vector<T>& vec, 
@@ -51,17 +52,17 @@ std::vector<double> operator+( const std::vector<double>& vec_a,
     return vec_sum;
 }
 
-std::vector<double> operator*(const std::vector<std::vector<double>>& matrix,
+std::vector<double> operator*(const Eigen::MatrixXd& matrix,
                               const std::vector<double>& vec){
     /*
     * Overload of operator* for matrix vector multiplication
     * where a matrix is a vector of vector of doubles:
-    * std::vector<std::vector<double>> 
-    * and vector is std::vector<double>
+    * std::vector<Eigen::VectorXd>
+    * and vector is Eigen::VectorXd
     */
     auto N = vec.size();
     assert(N == matrix[0].size() );
-    std::vector<double> res(N, 0.0);
+    Eigen::VectorXd res(N, 0.0);
 
     for(auto i = 0; i < N; i++){
         for(auto j = 0; j < N; j++){
@@ -77,12 +78,12 @@ bool test_matrix_vector_product() {
     */
     bool tests_passed = true;
 
-    std::vector<std::vector<double>> matrix = { {1. , 2. }, {3. , 4. }};
-    std::vector<double> vec = {1., 1.};
+    Eigen::MatrixXd matrix = { {1. , 2. }, {3. , 4. }};
+    Eigen::VectorXd vec = {1., 1.};
 
-    std::vector<double> mat_vec = matrix * vec;
+    Eigen::VectorXd mat_vec = matrix * vec;
 
-    std::vector<double> reference = {3. ,7.};
+    Eigen::VectorXd reference = {3. ,7.};
 
     double tol = 1e-8;
     for(auto i = 0; i < reference.size(); i++){
@@ -107,12 +108,12 @@ bool test_matrix_vector_product() {
 
 
 int main(){
-    std::vector<std::vector<double>> matrix = { {1. , 0. , 0.}, 
+    Eigen::MatrixXd matrix = { {1. , 0. , 0.},
                                                 {0. , 1. , 0.} ,
                                                 {0. , 0. , 1.} };
 
-    std::vector<double> vec_a = {1. , 2. , 3.};
-    std::vector<double> vec_b = {4. , 5. , 6.};
+    Eigen::VectorXd vec_a = {1. , 2. , 3.};
+    Eigen::VectorXd vec_b = {4. , 5. , 6.};
 
     // adding two vectors
     auto vec_sum = vec_a + vec_b;
