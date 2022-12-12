@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/panSimul.dir/main.cpp.o CMakeFiles/panSimul.dir/person.cpp.o -o panSimul 

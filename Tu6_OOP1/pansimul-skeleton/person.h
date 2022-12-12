@@ -13,9 +13,9 @@ enum class Status
 class Person
 {
 private:
-    Status status = Status::Normal;
+    Status _status = Status::Normal;
     // location is two dimensional
-    std::array<double, 2> curr_location = {0.0, 0.0};
+    std::array<double, 2> _curr_location = {0.0, 0.0};
     // Each person should get a unique id
     // Sometimes we name private member variables starting with
     // an underscore. It is a common convention, but there are
