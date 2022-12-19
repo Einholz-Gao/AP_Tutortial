@@ -1,0 +1,3 @@
+/home/einholz/[Studitum]/WS22|23/AP/Tutorial/Tu6_OOP1/onllinemut-solution/CMakeFiles/main.dir
+/home/einholz/[Studitum]/WS22|23/AP/Tutorial/Tu6_OOP1/onllinemut-solution/CMakeFiles/edit_cache.dir
+/home/einholz/[Studitum]/WS22|23/AP/Tutorial/Tu6_OOP1/onllinemut-solution/CMakeFiles/rebuild_cache.dir
