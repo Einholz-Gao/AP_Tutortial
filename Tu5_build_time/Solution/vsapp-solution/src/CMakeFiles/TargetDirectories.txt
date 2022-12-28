@@ -1,0 +1,3 @@
+/home/einholz/[Studitum]/WS22|23/AP/Tutorial/Tu5_build_time/Solution/vsapp-solution/src/CMakeFiles/vis_app.dir
+/home/einholz/[Studitum]/WS22|23/AP/Tutorial/Tu5_build_time/Solution/vsapp-solution/src/CMakeFiles/edit_cache.dir
+/home/einholz/[Studitum]/WS22|23/AP/Tutorial/Tu5_build_time/Solution/vsapp-solution/src/CMakeFiles/rebuild_cache.dir

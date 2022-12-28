@@ -20,7 +20,7 @@ class Student {
 
         // TODO: Convert to vector of pointers
         //Q: difference between them? pointer and normal vector?
-        std::vector<Course*> _courses;
+        std::shared_ptr<std::vector<Course>> _courses;
 
         friend class StudentCard;
     

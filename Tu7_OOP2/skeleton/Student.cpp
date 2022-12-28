@@ -28,10 +28,10 @@ void Student::register_for(std::string id)
 void Student::list_courses() const
 {
     std::cout << _name << " is taking these courses this semester: ";
-    for(const auto & course : _courses)
+    for(const auto & course : *_courses)
     {
         // TODO: course will now be a pointer, so you also need to dereference it (using ->)
-        std::cout << course->id() << " ";
+        std::cout << course.id() << " ";
     }
     std::cout << std::endl;
 }
