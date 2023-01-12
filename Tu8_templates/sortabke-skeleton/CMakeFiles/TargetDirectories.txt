@@ -1,0 +1,3 @@
+/home/einholz/[Studitum]/WS22|23/AP/Tutorial/Tu8_templates/sortabke-skeleton/CMakeFiles/sortable.dir
+/home/einholz/[Studitum]/WS22|23/AP/Tutorial/Tu8_templates/sortabke-skeleton/CMakeFiles/edit_cache.dir
+/home/einholz/[Studitum]/WS22|23/AP/Tutorial/Tu8_templates/sortabke-skeleton/CMakeFiles/rebuild_cache.dir

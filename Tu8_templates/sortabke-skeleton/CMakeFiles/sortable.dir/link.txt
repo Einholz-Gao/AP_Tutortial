@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/sortable.dir/sortable.cpp.o -o sortable 
