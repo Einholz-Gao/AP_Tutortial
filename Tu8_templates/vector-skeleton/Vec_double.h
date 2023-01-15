@@ -13,15 +13,28 @@ private:
 public:
   Vec() = default;
 
-  Vec(std::size_t capacity, T initial_val);
+  Vec(std::size_t capacity, T initial_val): _size(capacity), _arr(new T[capacity])
+  {
+    _capacity = capacity;
+    std::fill(_arr,_arr + _size, initial_val);
+  };
 
-  ~Vec() { delete[] _arr; }
+  ~Vec()
+  {
+    delete[] _arr;
+  }
 
-  std::size_t capacity();
+  std::size_t capacity(){
+    return _capacity;
+  }
 
-  std::size_t size();
+  std::size_t size(){
+    return _size;
+  }
 
-  void push(const T& value);
+  void push(const T& value){
+
+  }
 
   T& operator[](std::size_t index);
 
