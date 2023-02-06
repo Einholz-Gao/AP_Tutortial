@@ -29,16 +29,25 @@ int main(int argc, char * argv[]){
     std::chrono::time_point<std::chrono::system_clock> end;
     start = std::chrono::system_clock::now();
 
+    // for (auto i = 0; i < people.size(); i++){
+    //     for (auto j = 0; j < people.size(); j++){
+    //         if (i!=j){
+    //           distances[j][i] = std::sqrt(
+    //               std::pow(people[i].x() - people[j].x(), 2) +
+    //               std::pow(people[i].y() - people[j].y(), 2)
+    //             );
+    //         } else {
+    //             distances[j][i] = 0;
+    //         }
+    //     }
+    // }
+
+// change pow to multiply
     for (auto i = 0; i < people.size(); i++){
-        for (auto j = 0; j < people.size(); j++){
-            if (i!=j){
-              distances[j][i] = std::sqrt(
-                  std::pow(people[i].x() - people[j].x(), 2) +
-                  std::pow(people[i].y() - people[j].y(), 2)
-                );
-            } else {
-                distances[j][i] = 0;
-            }
+        for (auto j = i+1; j < people.size(); j++){//change j=0 to j=i
+              distances[j][i] = 
+                  (people[i].x() - people[j].x())*(people[i].x() - people[j].x()) +
+                  (people[i].y() - people[j].y())*(people[i].y() - people[j].y());
         }
     }
 
@@ -49,10 +58,10 @@ int main(int argc, char * argv[]){
 
     auto max = 0.0;
     for (auto i = 0; i < people.size(); i++){
-         auto row_max = *std::max_element(distances[i].begin(), distances[i].end());
+        auto row_max = *std::max_element(distances[i].begin(), distances[i].end());
          if (row_max > max){
              max = row_max;
          }
     }
-    std::cout << "Maximum distance between two people: " << max << std::endl;
+    std::cout << "Maximum distance between two people: " << std::sqrt(max) << std::endl;
 }

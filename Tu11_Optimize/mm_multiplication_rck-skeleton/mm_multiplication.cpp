@@ -15,9 +15,41 @@ void mm_mult_rck(std::size_t size, Matrix<double> &A, Matrix<double> &B, Matrix<
     }
   }
 }
+//  void mm_mult_rck(std::size_t size, Matrix<double> &A,
+//  Matrix<double> &B, Matrix<double> &C) {
+//  for (auto row = 0; row < size; ++row) {
+//  for (auto col = 0; col < size; ++col) {
+//  double accumulator = 0.0;
+//  for (auto k = 0; k < size; ++k) {
+//  accumulator += A(row, k) * B(k, col);
+//  }
+//  C(row, col) = accumulator;
+//  }
+//  }
+//  }
+
 
 // TODO: Implement alternative implementations of mm_mult_rck (with different names)
-
+void mm_mult_rck2(std::size_t size, Matrix<double> &A, Matrix<double> &B, Matrix<double> &C) {
+  for (auto k = 0; k < size; ++k) {//move k loop to the first
+    for (auto row = 0; row < size; ++row) {
+      for (auto col = 0; col < size; ++col) {
+      
+        C(row, col) += A(row, k) * B(k, col);
+      }
+    }
+  }
+}
+void mm_mult_rck3(std::size_t size, Matrix<double> &A, Matrix<double> &B, Matrix<double> &C) {
+   for (auto row = 0; row < size; ++row) {
+      for (auto k = 0; k < size; ++k) {//move k loop to the first  
+      for (auto col = 0; col < size; ++col) {
+      
+        C(row, col) += A(row, k) * B(k, col);
+      }
+    }
+  }
+}
 // Just a short name for the type of our mm_mult functions
 using mm_mult_func = std::function<void(std::size_t size, Matrix<double> &A,
                                         Matrix<double> &B, Matrix<double> &C)>;
@@ -65,8 +97,19 @@ int main(int argc, char **argv) {
     // Reset all elements of C to zero before each new implementation
     reset_matrix(N, C);
     testFunction(mm_mult_rck, size, samples, A, B, C);
-
     // TODO: Test your additional implementations here
+
+    std::cout << " ================== " << size << " ================ " << std::endl;
+    std::cout << "== loop order: k - row - column ==" << std::endl;
+    // Reset all elements of C to zero before each new implementation
+    reset_matrix(N, C);
+    testFunction(mm_mult_rck2, size, samples, A, B, C);
+
+    std::cout << " ================== " << size << " ================ " << std::endl;
+    std::cout << "== loop order: row - k - column ==" << std::endl;
+    // Reset all elements of C to zero before each new implementation
+    reset_matrix(N, C);
+    testFunction(mm_mult_rck3, size, samples, A, B, C);
 
   }
 
